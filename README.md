@@ -1,113 +1,113 @@
 # FLOW8
 
-**Сайт:** [repentov-dev.github.io/FLOW8](https://repentov-dev.github.io/FLOW8/) · **Скачать:** [Releases](https://github.com/repentov-dev/FLOW8/releases/latest)
+**Site:** [repentov-dev.github.io/FLOW8](https://repentov-dev.github.io/FLOW8/) · **Download:** [Releases](https://github.com/repentov-dev/FLOW8/releases/latest)
 
-![Интерфейс FLOW8: все каналы и шины на одном экране](docs/assets/flow8-mixer.png)
+![FLOW8 interface: every channel and bus on one screen](docs/assets/flow8-mixer.png)
 
-Нативное приложение для macOS, которое управляет цифровым микшером **Behringer FLOW 8**
-и читает его состояние **только по Bluetooth LE** — без MIDI и без USB. Интерфейс:
-компактные полосы, тёмная панель, минимум лишнего.
+A native macOS app that controls the **Behringer FLOW 8** digital mixer and reads its state
+**over Bluetooth LE only**, without MIDI or USB. The interface: compact strips, a dark panel,
+nothing extra.
 
-- macOS 14 Sonoma и новее
-- Apple Silicon (при желании собирается и под Intel)
-- Полный Xcode не нужен, достаточно Command Line Tools
+- macOS 14 Sonoma or later
+- Apple Silicon (an Intel build is possible)
+- No full Xcode needed, Command Line Tools are enough
 
-## Возможности
+## Features
 
-**Микшер**
+**Mixer**
 
-- 7 входных полос: Ch 1–4, Ch 5/6, Ch 7/8 и USB / BT
-- фейдер, pan/balance, gain, low cut, компрессор, 4-полосный эквалайзер
-- 4 посыла: Mon 1, Mon 2, FX 1, FX 2
-- mute / solo, фантомное питание +48 В (Ch 1–2)
-- 5 шин: Main, Mon 1, Mon 2, FX 1, FX 2 — уровень, лимитер, баланс (Main),
-  9-полосный эквалайзер (Main / Mon 1 / Mon 2)
-- метры каналов и Main (L/R) с калиброванной шкалой dB
-- скрытие ненужных полос (меню «Полосы», контекстное меню полосы или Настройки)
-- кнопка FX в шапке показывает и прячет каналы FX 1 / FX 2 в микшере
-- размер окна запоминается, окно сжимается вплоть до двух полос; на узком окне
-  вкладки в шапке переключаются на иконки
+- 7 input strips: Ch 1–4, Ch 5/6, Ch 7/8 and USB / BT
+- fader, pan/balance, gain, low cut, compressor, four-band EQ
+- 4 sends: Mon 1, Mon 2, FX 1, FX 2
+- mute / solo, +48 V phantom power (Ch 1–2)
+- 5 buses: Main, Mon 1, Mon 2, FX 1, FX 2, with level, limiter, balance (Main) and
+  nine-band EQ (Main / Mon 1 / Mon 2)
+- channel and Main (L/R) meters with a calibrated dB scale
+- hide unused strips (Strips menu, strip context menu or Settings)
+- the FX button in the header shows and hides the FX 1 / FX 2 channels in the mixer
+- the window size is remembered and shrinks to two strips; on a narrow window the
+  header tabs switch to icons
 
-**Эквалайзер**
+**Equalizer**
 
-- на каждой полосе — мини-график АЧХ; нажатие на «EQ» открывает отдельное окно
-- в окне: график с точками, которые тянутся мышью, и четыре ручки для точной настройки
-- сброс полосы двойным кликом по точке или кнопкой «Сбросить»
+- a mini EQ curve on every strip; press EQ to open a separate window
+- in the window: a graph with draggable points and four knobs for fine control
+- reset a band by double-clicking a point or with the Reset button
 
 **FX**
 
-- два слота, по 16 пресетов с реальными названиями (Ambience, Delay 1/1, Ping Pong…)
-- параметр пресета и переключатель «характера»
-- уровень FX-шины и посылы всех каналов прямо на странице FX
-- глобальный FX mute и tap tempo
+- two slots, 16 presets each with real names (Ambience, Delay 1/1, Ping Pong...)
+- preset parameter and Character switch
+- FX bus level and all channel sends on the FX page
+- global FX mute and tap tempo
 
-**Снапшоты**
+**Snapshots**
 
-- 15 слотов, загрузка одним кликом, сброс микшера
-- имена снапшотов читаются с микшера по Bluetooth
+- 15 slots, one-click recall, mixer reset
+- snapshot names are read from the mixer over Bluetooth
 
-**Синхронизация**
+**Sync**
 
-- приложение запрашивает у микшера дамп состояния (`0x38`) и разбирает его:
-  фейдеры, эквалайзеры, посылы, mute/solo, 48 В, лимитеры, FX-пресеты
-- постоянная синхронизация с настраиваемой частотой и ручное обновление
-- движения ручек и фейдеров на самом микшере подхватываются на лету
+- the app requests a state dump (`0x38`) and parses faders, EQs, sends, mute/solo, +48 V,
+  limiters and FX presets
+- continuous sync at a configurable rate plus manual refresh
+- knob and fader moves on the mixer itself are picked up live
 
-## Сборка
+## Build
 
-Нужны только Command Line Tools (`xcode-select --install`) и Swift 6.
+You only need Command Line Tools (`xcode-select --install`) and Swift 6.
 
 ```bash
-./build.sh            # собрать build/FLOW8.app
-./build.sh --run      # собрать и запустить
-./build.sh --install  # собрать, скопировать в /Applications и запустить
+./build.sh            # build build/FLOW8.app
+./build.sh --run      # build and launch
+./build.sh --install  # build, copy to /Applications and launch
 ```
 
-При первом запуске macOS спросит разрешение на Bluetooth — оно нужно и для управления,
-и для чтения состояния.
+On first launch macOS asks for Bluetooth permission. It is needed both to control the mixer
+and to read its state.
 
-Приложение подписано ad-hoc (без Developer ID), поэтому на другом Mac macOS может
-попросить подтвердить запуск: Системные настройки → Конфиденциальность и безопасность →
-«Всё равно открыть».
+The app is ad-hoc signed (without a Developer ID), so on another Mac macOS may ask you to
+confirm the launch: System Settings, Privacy & Security, Open Anyway.
 
-## Управление
+## Controls
 
-| Элемент | Действие |
+| Control | Action |
 |---|---|
-| Фейдер | тянуть вверх/вниз (1:1 с курсором), Shift — точнее, двойной клик — 0 dB |
-| Ручка | тянуть вверх/вниз, Shift — точнее, двойной клик — сброс |
-| Полоса | правый клик — скрыть полосу / открыть эквалайзер |
-| «Полосы» в шапке | быстро скрыть и показать каналы и шины |
+| Fader | drag up/down (1:1 with the cursor), Shift for fine control, double-click for 0 dB |
+| Knob | drag up/down, Shift for fine control, double-click to reset |
+| Strip | right-click to hide the strip or open the equalizer |
+| Strips in the header | quickly hide and show channels and buses |
 
-Шкала фейдера и метров нелинейная: −10 dB стоит ровно по центру, 0 dB — на трёх
-четвертях хода, ниже −10 шкала сжимается. Значения dB — это реальное усиление микшера:
-кривая снята эталонным тоном на живом FLOW 8, а не взята из линейной формулы.
+The fader and meter scale is non-linear: -10 dB sits exactly in the middle, 0 dB at three
+quarters of the travel, and the scale compresses below -10. The dB values are the mixer's
+real gain: the curve was measured with a reference tone on a live FLOW 8, not taken from a
+linear formula.
 
-## Ограничения
+## Limitations
 
-- Микшер отдаёт поток метров примерно 3 раза в секунду; приложение сглаживает его
-  до плавного движения (быстрая атака, мягкий спад), но чаще, чем присылает микшер,
-  пакетов не станет.
-- Метры и фейдеры откалиброваны по эталонному сигналу; абсолютная точность — в пределах
-  около 1.5 dB.
-- Эквалайзер канала регулируется только по усилению полос (так устроена карта параметров
-  FLOW 8); частоты полос фиксированы и показаны как 80 Гц / 240 Гц / 1 кГц / 6 кГц.
+- The mixer sends meter data about 3 times per second. The app smooths it into continuous
+  movement (fast attack, soft release), but it cannot get packets more often than the mixer
+  sends them.
+- Meters and faders are calibrated against a reference signal; absolute accuracy is within
+  about 1.5 dB.
+- Channel EQ adjustment is gain-only (that is how the FLOW 8 parameter map works). Band
+  frequencies are fixed and shown as 80 Hz / 240 Hz / 1 kHz / 6 kHz.
 
-## Протокол
+## Protocol
 
-Обмен идёт BLE-кадрами `[тип][0x01][данные…][сумма]` по служебной характеристике
-`0034594A-A8E7-4B1A-A6B1-CD5243059A57`. Схема параметров и BLE-аутентификация
-исследованы в проекте [abelroes/flow-8-midi](https://github.com/abelroes/flow-8-midi)
-(приложение использует только Bluetooth-часть, MIDI-код удалён).
+Frames are `[type][0x01][data…][checksum]` over the service characteristic
+`0034594A-A8E7-4B1A-A6B1-CD5243059A57`. The parameter map and BLE authentication were
+researched in [abelroes/flow-8-midi](https://github.com/abelroes/flow-8-midi) (the app uses
+only the Bluetooth part; the MIDI code was removed).
 
-## Структура
+## Structure
 
 ```
 Sources/
-  App/        точка входа, окно, меню, локализация AppKit-строк
-  Models/     состояние микшера, преобразования значений, каталог FX
-  Services/   Bluetooth LE, таблицы калибровки, разбор дампа состояния
-  UI/         полосы, эквалайзер, FX, снапшоты, настройки
-Tools/        отладочные утилиты
-docs/         сайт-визитка для GitHub Pages
+  App/        entry point, window, menus, AppKit string localization
+  Models/     mixer state, value conversions, FX catalog
+  Services/   Bluetooth LE, calibration tables, state dump parser
+  UI/         strips, equalizer, FX, snapshots, settings
+Tools/        debugging utilities
+docs/         landing page for GitHub Pages
 ```
