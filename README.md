@@ -1,9 +1,3 @@
-![FLOW8: full control of the FLOW 8 over Bluetooth](docs/assets/readme-banner.png)
-
-**Site:** [repentov-dev.github.io/FLOW8](https://repentov-dev.github.io/FLOW8/) · **Download:** [Releases](https://github.com/repentov-dev/FLOW8/releases/latest)
-
-![FLOW8 interface: every channel and bus on one screen](docs/assets/flow8-mixer.png)
-
 A native macOS app that controls the **Behringer FLOW 8** digital mixer and reads its state
 **over Bluetooth LE only**, without MIDI or USB. The interface: compact strips, a dark panel,
 nothing extra.
@@ -11,6 +5,8 @@ nothing extra.
 - macOS 14 Sonoma or later
 - Apple Silicon (an Intel build is possible)
 - No full Xcode needed, Command Line Tools are enough
+
+![FLOW8 interface: every channel and bus on one screen](docs/assets/flow8-mixer.png)
 
 ## Features
 
