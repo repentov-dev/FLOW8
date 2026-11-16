@@ -1,9 +1,5 @@
 # FLOW8
 
-<p align="center">
-  <img src="docs/assets/app-icon.png" width="96" alt="FLOW8">
-</p>
-
 **Сайт:** [repentov-dev.github.io/FLOW8](https://repentov-dev.github.io/FLOW8/) · **Скачать:** [Releases](https://github.com/repentov-dev/FLOW8/releases/latest)
 
 ![Интерфейс FLOW8: все каналы и шины на одном экране](docs/assets/flow8-mixer.png)
