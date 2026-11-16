@@ -245,7 +245,11 @@
           </ol>
         </div>
 
-        <p class="install-note reveal">The app is ad-hoc signed, without a Developer ID. If macOS asks you to confirm the launch, open System Settings, then Privacy &amp; Security, then Open Anyway.</p>
+        <div class="install-note reveal">
+          <p>The app is ad-hoc signed. macOS quarantines the download, so clear it once:</p>
+          <pre><code>xattr -dr com.apple.quarantine /Applications/FLOW8.app</code></pre>
+          <p>Or use System Settings, Privacy &amp; Security, Open Anyway.</p>
+        </div>
       </div>
     </section>
 

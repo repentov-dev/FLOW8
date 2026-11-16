@@ -62,8 +62,14 @@ You only need Command Line Tools (`xcode-select --install`) and Swift 6.
 On first launch macOS asks for Bluetooth permission. It is needed both to control the mixer
 and to read its state.
 
-The app is ad-hoc signed (without a Developer ID), so on another Mac macOS may ask you to
-confirm the launch: System Settings, Privacy & Security, Open Anyway.
+The app is ad-hoc signed (without a Developer ID). A downloaded release is quarantined by
+macOS, so clear the attribute once after moving it to Applications:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/FLOW8.app
+```
+
+Or open System Settings, Privacy & Security, Open Anyway.
 
 ## Controls
 

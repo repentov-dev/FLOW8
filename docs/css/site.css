@@ -569,6 +569,25 @@ h2 {
   line-height: 1.6;
 }
 
+.install-note p { margin: 0; }
+
+.install-note p + p { margin-top: var(--space-sm); }
+
+.install-note pre {
+  margin: var(--space-md) 0;
+  padding: var(--space-md);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--color-paper);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: 8px;
+  color: var(--color-ink-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+}
+
 /* ---------- Specs ---------- */
 
 .specs {
