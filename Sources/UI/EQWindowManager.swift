@@ -1,8 +1,8 @@
 import AppKit
 import SwiftUI
 
-/// Opens the channel EQ in its own non-modal window, like the EQ panels in
-/// RME Control. One window per channel, reopened on demand.
+/// Opens the channel EQ in its own non-modal window. One window per channel,
+/// reopened on demand.
 /// Borderless EQ panel: no title bar, draggable by its background, rounded.
 final class EQPanel: NSWindow {
     override var canBecomeKey: Bool { true }

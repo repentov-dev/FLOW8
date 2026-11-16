@@ -55,7 +55,7 @@ struct VisualEffectBackground: NSViewRepresentable {
 }
 
 extension View {
-    /// Rounded translucent card, same visual language as the RME Control popover.
+    /// Rounded translucent card used by the app's floating panels.
     func panelCard(radius: CGFloat = 10) -> some View {
         self
             .background(
