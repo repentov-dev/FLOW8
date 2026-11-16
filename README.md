@@ -1,4 +1,4 @@
-# FLOW8
+![FLOW8: full control of the FLOW 8 over Bluetooth](docs/assets/readme-banner.png)
 
 **Site:** [repentov-dev.github.io/FLOW8](https://repentov-dev.github.io/FLOW8/) · **Download:** [Releases](https://github.com/repentov-dev/FLOW8/releases/latest)
 
