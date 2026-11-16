@@ -1,0 +1,2 @@
+"NSBluetoothAlwaysUsageDescription" = "FLOW8 reads the mixer state and snapshot names over Bluetooth.";
+"NSBluetoothPeripheralUsageDescription" = "FLOW8 reads the mixer state and snapshot names over Bluetooth.";

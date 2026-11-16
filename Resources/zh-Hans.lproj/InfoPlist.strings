@@ -1,0 +1,2 @@
+"NSBluetoothAlwaysUsageDescription" = "FLOW8 通过蓝牙读取调音台状态和快照名称。";
+"NSBluetoothPeripheralUsageDescription" = "FLOW8 通过蓝牙读取调音台状态和快照名称。";

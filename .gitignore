@@ -1,0 +1,7 @@
+.DS_Store
+.build/
+build/
+.tmp/
+ref-flow8-midi/
+*.xcuserstate
+*.swp
